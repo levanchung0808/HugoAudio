@@ -9,6 +9,6 @@ npx react-native run-android
 ```
 
 
-# Tài liệu tham khảo
+## Tài liệu tham khảo
 https://github.com/kristerkari/react-native-svg-transformer
 https://reactnative.dev/docs/environment-setup
