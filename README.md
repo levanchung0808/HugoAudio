@@ -8,10 +8,17 @@
 ![image](https://user-images.githubusercontent.com/86552382/199182464-fe9c8355-4ae9-4e15-aec4-ce7e75a52510.png)
 ![image](https://user-images.githubusercontent.com/86552382/199182779-56d77b53-9e11-4bea-b256-620378689413.png)
 
-
-
-
 # Cách chạy project
+## Nhớ cài node_module mới chạy được nhé
+
+```bash
+npm install
+```
+or 
+```bash
+yarn install
+```
+
 **B1: Chạy Metro**
 ```bash
 npx react-native start
