@@ -9,7 +9,7 @@
 ![image](https://user-images.githubusercontent.com/86552382/199182779-56d77b53-9e11-4bea-b256-620378689413.png)
 
 # Cách chạy project
-**Tất cả các lệnh dưới đều phải mở bằng _Command Prompt_ trong project để chạy nhé
+**Tất cả các lệnh dưới đều phải mở bằng _Command Prompt_ trong project để chạy nhé**
 ## Nhớ cài node_module mới chạy được nhé
 
 ```bash
