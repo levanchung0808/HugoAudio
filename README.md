@@ -1,8 +1,10 @@
 # Lưu ý trước khi PULL code về
 **Nhớ chọn branch(*nhánh*) của mình trước khi code (branch sẽ là tên của từng người)**
+
 ![image](https://user-images.githubusercontent.com/86552382/199064454-e762797b-7dee-491b-99d8-b8cff213d3e1.png)
 
 **Chọn máy ảo đồng bộ và API 30**
+
 ![image](https://user-images.githubusercontent.com/86552382/199182464-fe9c8355-4ae9-4e15-aec4-ce7e75a52510.png)
 ![image](https://user-images.githubusercontent.com/86552382/199182779-56d77b53-9e11-4bea-b256-620378689413.png)
 
