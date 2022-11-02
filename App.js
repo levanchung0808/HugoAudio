@@ -5,7 +5,7 @@ import {
   View,
 } from 'react-native';
 
-import Invest from './assets/btn_Play.svg'; // import SVG
+import Invest from './src/assets/btn_Play'; // import SVG
 
 const App = () => {
   return (
