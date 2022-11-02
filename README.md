@@ -1,6 +1,5 @@
 # Lưu ý trước khi PULL(lấy) code về
-**KHÔNG CHỌN NHÁNH MAIN ĐỂ CODE**
-**Nhớ chọn branch(*nhánh*) của mình trước khi code (branch sẽ là tên của từng người)**
+**KHÔNG CHỌN NHÁNH MAIN ĐỂ CODE. Nhớ chọn branch(*nhánh*) của mình trước khi code (branch sẽ là tên của từng người)**
 
 ![image](https://user-images.githubusercontent.com/86552382/199064454-e762797b-7dee-491b-99d8-b8cff213d3e1.png)
 
