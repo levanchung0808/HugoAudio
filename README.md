@@ -39,7 +39,10 @@ npx react-native run-android
 ![image](https://user-images.githubusercontent.com/86552382/199063137-85c108e3-1e89-4ad2-8c5b-fe7ce92c318c.png)
 ![image](https://user-images.githubusercontent.com/86552382/199063387-7e4bf69d-f0c6-4749-bdec-eca4c5d3bca8.png)
 
-
+# Cách Merge(Hợp nhất) code từ nhánh Main về nhánh riêng.
+![image](https://user-images.githubusercontent.com/86552382/199405483-4abdf652-c53d-4708-87a3-7b82d8754bb9.png)
+![image](https://user-images.githubusercontent.com/86552382/199405829-5e48753e-c0f3-44a3-b892-2df0ca0e0580.png)
+![image](https://user-images.githubusercontent.com/86552382/199406128-fe4518e9-3958-4335-9f86-958ce6cd5d70.png)
 
 
 ## Tài liệu tham khảo
