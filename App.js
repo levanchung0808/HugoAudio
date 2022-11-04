@@ -10,7 +10,6 @@ import TopHitLibrary from './src/screen/TopHitLibrary';
 
 const App = () => {
   return (
-    <TopHitLibrary/>
-    );
+    <LibraryScreen/>    );
 };
 export default App;

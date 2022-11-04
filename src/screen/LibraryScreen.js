@@ -8,7 +8,7 @@ import Artist from '../assets/btn_Artist.svg';
 import Podcast from '../assets/btn_Podcast.svg';
 
 const LibraryScreen = () => {
-  const [foods, setFoods] = useState([
+  const [musics, setMusics] = useState([
     {
       id: 1,
       url: 'https://scontent.fsgn5-11.fna.fbcdn.net/v/t39.30808-6/307681936_142972251766889_3452252407113028857_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=hgUnsw9VZk8AX-Pwoa9&tn=_2Y6WdjfwPMtmgpQ&_nc_ht=scontent.fsgn5-11.fna&oh=00_AfAdrMbAgz0NYwOFu8ApSPiKYFMcStd358hNXwxbLsc_VA&oe=63686CFF',
@@ -20,12 +20,12 @@ const LibraryScreen = () => {
       name: 'Playlist2',
     },
     {
-      id: 10,
+      id: 3,
       url: 'https://scontent.fsgn5-11.fna.fbcdn.net/v/t39.30808-6/307681936_142972251766889_3452252407113028857_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=hgUnsw9VZk8AX-Pwoa9&tn=_2Y6WdjfwPMtmgpQ&_nc_ht=scontent.fsgn5-11.fna&oh=00_AfAdrMbAgz0NYwOFu8ApSPiKYFMcStd358hNXwxbLsc_VA&oe=63686CFF',
       name: 'Playlist3',
     },
     {
-      id: 12,
+      id: 4,
       url: 'https://scontent.fsgn5-11.fna.fbcdn.net/v/t39.30808-6/307681936_142972251766889_3452252407113028857_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=hgUnsw9VZk8AX-Pwoa9&tn=_2Y6WdjfwPMtmgpQ&_nc_ht=scontent.fsgn5-11.fna&oh=00_AfAdrMbAgz0NYwOFu8ApSPiKYFMcStd358hNXwxbLsc_VA&oe=63686CFF',
       name: 'Playlist4',
     },
@@ -60,8 +60,8 @@ const LibraryScreen = () => {
 
       <View style={styles.body}>
         <FlatList
-          data={foods}
-          numColumns={Math.ceil(foods.length / 2)}
+          data={musics}
+          numColumns={Math.ceil(musics.length / 2)}
           renderItem={({item}) => <ItemView item={item} />}
           keyExtractor={item => item.id}
         />

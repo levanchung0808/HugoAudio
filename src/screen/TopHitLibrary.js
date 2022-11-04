@@ -12,7 +12,7 @@ import Micro from '../assets/btn_Micro.svg'
 import Playlist from '../assets/btn_Playlist.svg'
 import Control from '../assets/btn_Control.svg'
 import Slider from '@react-native-community/slider';
-
+import { useState } from 'react'
 
 
 
@@ -35,7 +35,7 @@ const TopHitLibrary = () => {
             style={{width:300, height: 5,marginBottom:40,backgroundColor:'white'}}
             minimumValue={50}
             maximumValue={100}
-            minimumTrackTintColor=""
+            minimumTrackTintColor="green"
             maximumTrackTintColor='#FFFFFF'
             />
         </View>
