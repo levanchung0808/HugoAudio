@@ -51,3 +51,5 @@ https://github.com/kristerkari/react-native-svg-transformer
 https://reactnative.dev/docs/environment-setup
 
 https://viblo.asia/p/xay-dung-cau-truc-project-voi-react-native-Eb85ogR052G
+
+https://viblo.asia/p/responsive-va-adaptive-ui-trong-react-native-Az45bPOOZxY
