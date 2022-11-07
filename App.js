@@ -4,12 +4,16 @@ import {
   Text,
   View,
 } from 'react-native';
-import LibraryScreen from './src/screen/LibraryScreen';
-import TopHitLibrary from './src/screen/TopHitLibrary';
+import LibraryScreen from './src/components/podcasts/screen/LibraryScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import PodcastNavigation from './src/components/podcasts/PodcastNavigation';
 
 
 const App = () => {
   return (
-    <LibraryScreen/>    );
-};
+    <NavigationContainer>
+      <PodcastNavigation/>
+    </NavigationContainer>
+  )
+}
 export default App;
