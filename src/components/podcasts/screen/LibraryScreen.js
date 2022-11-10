@@ -12,22 +12,22 @@ const LibraryScreen = () => {
   const [musics, setMusics] = useState([
     {
       id: 1,
-      url: 'https://scontent.fsgn5-11.fna.fbcdn.net/v/t39.30808-6/307681936_142972251766889_3452252407113028857_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=hgUnsw9VZk8AX-Pwoa9&tn=_2Y6WdjfwPMtmgpQ&_nc_ht=scontent.fsgn5-11.fna&oh=00_AfAdrMbAgz0NYwOFu8ApSPiKYFMcStd358hNXwxbLsc_VA&oe=63686CFF',
+      url: 'https://vcdn1-dulich.vnecdn.net/2020/09/04/1-Meo-chup-anh-dep-khi-di-bien-9310-1599219010.jpg?w=0&h=0&q=100&dpr=2&fit=crop&s=j8THd4HE31ZHWTQhSZx5tQ',
       name: 'Playlist1',
     },
     {
       id: 2,
-      url: 'https://scontent.fsgn5-11.fna.fbcdn.net/v/t39.30808-6/307681936_142972251766889_3452252407113028857_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=hgUnsw9VZk8AX-Pwoa9&tn=_2Y6WdjfwPMtmgpQ&_nc_ht=scontent.fsgn5-11.fna&oh=00_AfAdrMbAgz0NYwOFu8ApSPiKYFMcStd358hNXwxbLsc_VA&oe=63686CFF',
+      url: 'https://vcdn1-dulich.vnecdn.net/2020/09/04/1-Meo-chup-anh-dep-khi-di-bien-9310-1599219010.jpg?w=0&h=0&q=100&dpr=2&fit=crop&s=j8THd4HE31ZHWTQhSZx5tQ',
       name: 'Playlist2',
     },
     {
       id: 3,
-      url: 'https://scontent.fsgn5-11.fna.fbcdn.net/v/t39.30808-6/307681936_142972251766889_3452252407113028857_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=hgUnsw9VZk8AX-Pwoa9&tn=_2Y6WdjfwPMtmgpQ&_nc_ht=scontent.fsgn5-11.fna&oh=00_AfAdrMbAgz0NYwOFu8ApSPiKYFMcStd358hNXwxbLsc_VA&oe=63686CFF',
+      url: 'https://vcdn1-dulich.vnecdn.net/2020/09/04/1-Meo-chup-anh-dep-khi-di-bien-9310-1599219010.jpg?w=0&h=0&q=100&dpr=2&fit=crop&s=j8THd4HE31ZHWTQhSZx5tQ',
       name: 'Playlist3',
     },
     {
       id: 4,
-      url: 'https://scontent.fsgn5-11.fna.fbcdn.net/v/t39.30808-6/30768193 6_142972251766889_3452252407113028857_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=hgUnsw9VZk8AX-Pwoa9&tn=_2Y6WdjfwPMtmgpQ&_nc_ht=scontent.fsgn5-11.fna&oh=00_AfAdrMbAgz0NYwOFu8ApSPiKYFMcStd358hNXwxbLsc_VA&oe=63686CFF',
+      url: 'https://vcdn1-dulich.vnecdn.net/2020/09/04/1-Meo-chup-anh-dep-khi-di-bien-9310-1599219010.jpg?w=0&h=0&q=100&dpr=2&fit=crop&s=j8THd4HE31ZHWTQhSZx5tQ',
       name: 'Playlist4',
     },
   ]);
@@ -40,7 +40,9 @@ const LibraryScreen = () => {
             source={{
               uri: item.url,
             }}
+            resizeMode="contain"
             style={styles.img_item}
+            // style={{width: 100, height: 100}}
           />
           <Text style={styles.tv_item}>{item.name}</Text>
         </View>
@@ -54,8 +56,8 @@ const LibraryScreen = () => {
           <Text style={styles.tv_header}>Your Library</Text>
         </View>
         <View style={styles.hedaer_right}>
-          <View style={{width:35,}}>
-            <Search style={styles.vector_icon}  />
+          <View style={{width: 35}}>
+            <Search style={styles.vector_icon} />
           </View>
           <View>
             <Person style={styles.vector_icon} />
@@ -71,51 +73,100 @@ const LibraryScreen = () => {
           keyExtractor={item => item.id}
         />
         <View style={{justifyContent: 'center', alignItems: 'center'}}>
-          <Text style={{fontSize: 15, fontWeight: '600',marginBottom:20,color:'white'}}>See all</Text>
+          <Text
+            style={{
+              fontSize: 15,
+              fontWeight: '600',
+              marginBottom: 20,
+              color: 'white',
+            }}>
+            See all
+          </Text>
         </View>
       </View>
 
       <View style={styles.footer}>
-        <Text style={{fontSize:18,color:'white',fontWeight:'600',marginBottom:20,marginEnd:230}}>Your Activities</Text>
-        <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between',width:'90%',paddingBottom:10}}>
-            <View style={{width:35 ,justifyContent:'center',alignItems:'center'}}>
-              <Like  style={styles.vector_icon}/>
-            </View>
-            <View style={{width:300,paddingStart:20}}>
-              <Text style={{color:'white',fontSize:17,fontWeight:'600',marginEnd:100}}>Liked Songs</Text>
-            </View>
-            <View>
-              <Next  style={styles.vector_icon}/>
-            </View>
-
+        <Text
+          style={{
+            fontSize: 18,
+            color: 'white',
+            fontWeight: '600',
+            marginBottom: 20,
+            marginEnd: 230,
+          }}>
+          Your Activities
+        </Text>
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            width: '90%',
+            paddingBottom: 10,
+          }}>
+          <View
+            style={{width: 35, justifyContent: 'center', alignItems: 'center'}}>
+            <Like style={styles.vector_icon} />
+          </View>
+          <View style={{width: 300, paddingStart: 20}}>
+            <Text
+              style={{
+                color: 'white',
+                fontSize: 17,
+                fontWeight: '600',
+                marginEnd: 100,
+              }}>
+              Liked Songs
+            </Text>
+          </View>
+          <View>
+            <Next style={styles.vector_icon} />
+          </View>
         </View>
-        <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between',width:'90%',paddingBottom:10}}>
-            <View style={{width:35 ,justifyContent:'center',alignItems:'center'}}>
-              <Artist style={styles.vector_icon}/>
-            </View>
-            <View style={{width:300,paddingStart:20}}>
-              <Text style={{color:'white',fontSize:17,fontWeight:'600',marginEnd:100}}>Followed Artists</Text>
-            </View>
-            <View>
-              <Next  style={styles.vector_icon}/>
-            </View>
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            width: '90%',
+            paddingBottom: 10,
+          }}>
+          <View
+            style={{width: 35, justifyContent: 'center', alignItems: 'center'}}>
+            <Artist style={styles.vector_icon} />
+          </View>
+          <View style={{width: 300, paddingStart: 20}}>
+            <Text
+              style={{
+                color: 'white',
+                fontSize: 17,
+                fontWeight: '600',
+                marginEnd: 100,
+              }}>
+              Followed Artists
+            </Text>
+          </View>
+          <View>
+            <Next style={styles.vector_icon} />
+          </View>
         </View>
 
-            
-        <View style={{flexDirection:'row',width:'90%',paddingBottom:10}}>
-            <View style={{width:35 ,justifyContent:'center',alignItems:'center'}}>
-              <Podcast  style={styles.vector_icon}/>
-            </View>
-            <View style={{width:300,paddingStart:20}}>
-              <Text style={{color:'white',fontSize:17,fontWeight:'600'}}>Followed Podcast</Text>
-            </View>
-            <View>
-              <Next  style={styles.vector_icon}/> 
-            </View>
+        <View style={{flexDirection: 'row', width: '90%', paddingBottom: 10}}>
+          <View
+            style={{width: 35, justifyContent: 'center', alignItems: 'center'}}>
+            <Podcast style={styles.vector_icon} />
+          </View>
+          <View style={{width: 300, paddingStart: 20}}>
+            <Text style={{color: 'white', fontSize: 17, fontWeight: '600'}}>
+              Followed Podcast
+            </Text>
+          </View>
+          <View>
+            <Next style={styles.vector_icon} />
+          </View>
         </View>
       </View>
     </View>
-
   );
 };
 
@@ -145,7 +196,6 @@ const styles = StyleSheet.create({
     width: 32,
     height: 32,
     color: 'white',
-   
   },
   tv_header: {
     color: '#ffffff',
@@ -169,7 +219,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'flex-end',
     marginBottom: 27,
-    width:'95%',
+    width: '95%',
   },
   body: {
     flex: 5.5,
@@ -180,6 +230,6 @@ const styles = StyleSheet.create({
   },
   footer: {
     flex: 3,
-    alignItems:'center',
+    alignItems: 'center',
   },
 });
