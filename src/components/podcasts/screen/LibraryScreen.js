@@ -113,9 +113,6 @@ const LibraryScreen = () => {
               <Next  style={styles.vector_icon}/> 
             </View>
         </View>
-        <View>
-          <Text style={{color:colors.TV}}>kajsgdkak</Text>
-        </View>
       </View>
     </View>
 
