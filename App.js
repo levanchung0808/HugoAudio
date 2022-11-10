@@ -4,11 +4,8 @@ import {
   Text,
   View,
 } from 'react-native';
-import LibraryScreen from './src/components/podcasts/screen/LibraryScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import PodcastNavigation from './src/components/podcasts/PodcastNavigation';
-import HomeScreen from './src/components/podcasts/screen/HomeScreen';
-
 
 const App = () => {
   return (
