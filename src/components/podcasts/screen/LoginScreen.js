@@ -1,33 +1,47 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TextInput,
-  SafeAreaView,
-  Pressable,
-  Touchable,
-} from 'react-native';
-import React from 'react';
-import styleLogin from './styleLogin';
-import IcEmail from '../../../assets/svg/mail.svg'; // import SVG
-import IcHide from '../../../assets/svg/hide.svg'; // import SVG
-import IcGoogle from '../../../assets/svg/google.svg'; // import SVG
-import IcFb from '../../../assets/svg/fb.svg'; // import SVG
-import CheckBox from '@react-native-community/checkbox';
-const HomeScreen = () => {
+import { Text, View, Image, TextInput, Pressable } from "react-native";
+import React, { useState } from "react";
+import styleLogin from "./styleLogin";
+import IcEmail from "../../../assets/svg/mail.svg"; // import SVG
+import IcHide from "../../../assets/svg/hide.svg"; // import SVG
+import IcGoogle from "../../../assets/svg/google.svg"; // import SVG
+import IcFb from "../../../assets/svg/fb.svg"; // import SVG
+import CheckBox from "@react-native-community/checkbox";
+
+import UserContext from "../../users/UserContext";
+
+const LoginScreen = () => {
+  const { onLogin } = useContext(UserContext);
+
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const login = async () => {
+    try {
+      const result = await onLogin(username, password);
+      if (result == false) {
+        console.log("Lỗi login Screen");
+      } else {
+        console.log("Đăng nhập rồi nha");
+      }
+    } catch (e) {
+      console.log("Login error", e);
+    }
+  };
+  
   return (
     <View style={styleLogin.container}>
       <View style={styleLogin.header}>
         <View style={styleLogin.viewLogo}>
           <Image
             style={styleLogin.logo}
-            source={require('../../../assets/img/logo_only.png')}
-            resizeMode="cover"></Image>
+            source={require("../../../assets/img/logo_only.png")}
+            resizeMode="cover"
+          ></Image>
           <Image
             style={styleLogin.nameLogo}
-            source={require('../../../assets/img/Text.png')}
-            resizeMode="cover"></Image>
+            source={require("../../../assets/img/Text.png")}
+            resizeMode="cover"
+          ></Image>
         </View>
         <View>
           <Text style={styleLogin.txt}>
@@ -45,16 +59,22 @@ const HomeScreen = () => {
           </View>
           <View style={styleLogin.tip}>
             <TextInput
+              value={username}
+              onChangeText={setUsername}
               style={styleLogin.txtIie}
-              placeholderTextColor={'#01C0FA'}
-              placeholder="Email hoặc tên tài khoản"></TextInput>
+              placeholderTextColor={"#01C0FA"}
+              placeholder="Username"
+            ></TextInput>
             <IcEmail style={styleLogin.icEmail}></IcEmail>
           </View>
           <View style={styleLogin.tip}>
             <TextInput
+              value={password}
+              onChangeText={setPassword}
               style={styleLogin.txtIie}
-              placeholderTextColor={'#01C0FA'}
-              placeholder="Mật khẩu"></TextInput>
+              placeholderTextColor={"#01C0FA"}
+              placeholder="Mật khẩu"
+            ></TextInput>
             <Pressable>
               <IcHide style={styleLogin.icEmail}></IcHide>
             </Pressable>
@@ -64,7 +84,7 @@ const HomeScreen = () => {
             <CheckBox />
           </View>
           <View style={styleLogin.viewBtnLogin}>
-            <Pressable>
+            <Pressable onPress={login}>
               <Text style={styleLogin.txtLogin}>Đăng nhập</Text>
             </Pressable>
           </View>
@@ -96,4 +116,4 @@ const HomeScreen = () => {
   );
 };
 
-export default HomeScreen;
+export default LoginScreen;
