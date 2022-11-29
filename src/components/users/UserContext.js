@@ -1,5 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
-import React, { createContext } from "react";
+import React, { createContext, useState } from "react";
 import { register, login } from "./UserService";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -9,7 +8,7 @@ export const UserContextProvider = (props) => {
   const { children } = props;
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState('');
 
   const onRegister = async (username, password) => {
     try {
@@ -19,7 +18,7 @@ export const UserContextProvider = (props) => {
         return true;
       }
     } catch (e) {
-      console.log("onRegister error asd", e);
+      console.log("onRegister error", e);
     }
     //register fail
     return false;
@@ -31,21 +30,22 @@ export const UserContextProvider = (props) => {
       //register success
       if (result.error == false) {
         const { accessToken, data } = result;
+        
         //lưu token vào bộ nhớ
         await AsyncStorage.setItem("token", accessToken);
-        setUser(user);
+        setUser(data);
         setIsLoggedIn(true);
         return true;
       }
     } catch (e) {
-      console.log("onLogin error asd", e);
+      console.log("onLogin error", e);
     }
     //register fail
     return false;
   };
 
   return (
-    <UserContext.Provider value={{ onRegister, onLogin, isLoggedIn }}>
+    <UserContext.Provider value={{ onRegister, onLogin, isLoggedIn, user }}>
       {children}
     </UserContext.Provider>
   );

@@ -1,5 +1,5 @@
 import { Text, View, Image, TextInput, Pressable } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styleLogin from "./styleLogin";
 import IcEmail from "../../../assets/svg/mail.svg"; // import SVG
 import IcHide from "../../../assets/svg/hide.svg"; // import SVG
@@ -10,6 +10,7 @@ import CheckBox from "@react-native-community/checkbox";
 import UserContext from "../../users/UserContext";
 
 const LoginScreen = () => {
+
   const { onLogin } = useContext(UserContext);
 
   const [username, setUsername] = useState("");
@@ -19,7 +20,7 @@ const LoginScreen = () => {
     try {
       const result = await onLogin(username, password);
       if (result == false) {
-        console.log("Lỗi login Screen");
+        console.log("Sai thông tin rồi nha");
       } else {
         console.log("Đăng nhập rồi nha");
       }
@@ -27,7 +28,7 @@ const LoginScreen = () => {
       console.log("Login error", e);
     }
   };
-  
+
   return (
     <View style={styleLogin.container}>
       <View style={styleLogin.header}>
