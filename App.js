@@ -1,28 +1,21 @@
-import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import PodcastNavigation from "./src/components/podcasts/PodcastNavigation";
+import SignUpScreen from "./src/components/podcasts/screen/SignupScreen";
+import LoginScreen from "./src/components/podcasts/screen/LoginScreen";
+import { UserContextProvider } from "./src/components/users/UserContext";
+import AppNavigator from "./src/navigators/AppNavigator";
 
-import Invest from './src/assets/btn_Play'; // import SVG
-import TophitScreen from './src/components/podcasts/screen/TophitScreen';
-import Search from './src/components/podcasts/screen/SearchScreen';
 const App = () => {
   return (
-    // <TophitScreen></TophitScreen>
-    <Search></Search>
-    
-
-    // <View style={styles.container}>
-    //   <Text style={styles.text_svg}>SVG in here</Text>
-    //   <Invest width={200} height={200}>asda</Invest>
-    // </View>
+    // <NavigationContainer>
+    //   <PodcastNavigation/>
+    // </NavigationContainer>
+    <UserContextProvider>
+      <AppNavigator/>
+      {/* <SignUpScreen /> */}
+      {/* <LoginScreen></LoginScreen> */}
+    </UserContextProvider>
   );
 };
-
-const styles = StyleSheet.create({
-  
-});
-
 export default App;
