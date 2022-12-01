@@ -1,19 +1,32 @@
 import { Text, View, ScrollView, Image, FlatList } from "react-native";
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import styleHome from "./styleHome";
-import IcMore from "../../../assets/svg/more-vertical.svg"; // import SVG
+import IcMore from "../../../assets/svg/more-vertical.svg";
+import PodcastContext from "../PodcastContext";
 
 const HomeScreen = () => {
-  const randerItem = ({ item }) => {
+  const { getProducts, products } = useContext(PodcastContext);
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
+  const renderItemHitTrongTuan = ({ item }) => {
     return (
       <View style={styleHome.viewListMusic}>
         <Image
           resizeMode="cover"
           style={styleHome.imgMusic1}
-          source={{ uri: item.image }}
+          source={
+            item.image == true
+              ? { uri: item.image }
+              : {
+                  uri: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png",
+                }
+          }
         />
-        <Text style={styleHome.txtNameMusic}>{item.title}</Text>
-        <Text style={styleHome.txtSinger}>{item.nameSinger}</Text>
+        <Text style={styleHome.txtNameMusic}>{item.name}</Text>
+        <Text style={styleHome.txtSinger}>{item.genre}</Text>
       </View>
     );
   };
@@ -63,8 +76,8 @@ const HomeScreen = () => {
               <Text style={styleHome.txtMusicGenre}>Hit trong tuần</Text>
 
               <FlatList
-                data={sample}
-                renderItem={randerItem}
+                data={products}
+                renderItem={renderItemHitTrongTuan}
                 keyExtractor={(item) => item._id}
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
@@ -98,7 +111,7 @@ const HomeScreen = () => {
               <Text style={styleHome.txtMusicGenre}>Đang thịnh hành</Text>
               <FlatList
                 data={sample1}
-                renderItem={randerItem}
+                renderItem={renderItemHitTrongTuan}
                 keyExtractor={(item) => item._id}
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
@@ -111,7 +124,7 @@ const HomeScreen = () => {
               </Text>
               <FlatList
                 data={sample}
-                renderItem={randerItem}
+                renderItem={renderItemHitTrongTuan}
                 keyExtractor={(item) => item._id}
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
@@ -122,7 +135,7 @@ const HomeScreen = () => {
               <Text style={styleHome.txtMusicGenre}>Nhạc hoàn toàn mới</Text>
               <FlatList
                 data={sample2}
-                renderItem={randerItem}
+                renderItem={renderItemHitTrongTuan}
                 keyExtractor={(item) => item._id}
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
@@ -133,7 +146,7 @@ const HomeScreen = () => {
               <Text style={styleHome.txtMusicGenre}>Của riêng mình bạn</Text>
               <FlatList
                 data={sample}
-                renderItem={randerItem}
+                renderItem={renderItemHitTrongTuan}
                 keyExtractor={(item) => item._id}
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}

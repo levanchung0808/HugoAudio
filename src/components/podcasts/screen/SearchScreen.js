@@ -1,6 +1,8 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
+import PodcastContext from '../PodcastContext';
+
 const SearchScreen = () => {
   return (
     <View>

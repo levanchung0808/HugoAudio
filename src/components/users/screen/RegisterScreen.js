@@ -1,31 +1,27 @@
+import React, { useContext, useState } from "react";
 import { Text, View, Image, TextInput, Pressable } from "react-native";
-import React, { useState, useContext } from "react";
 import styleLogin from "./styleLogin";
 import IcEmail from "../../../assets/svg/mail.svg"; // import SVG
 import IcHide from "../../../assets/svg/hide.svg"; // import SVG
 import IcGoogle from "../../../assets/svg/google.svg"; // import SVG
 import IcFb from "../../../assets/svg/fb.svg"; // import SVG
-import CheckBox from "@react-native-community/checkbox";
+import { UserContext } from "../UserContext";
 
-import UserContext from "../../users/UserContext";
+const RegisterScreen = ({ navigation }) => {
+  const { onRegister } = useContext(UserContext);
+  const [username, setUsername] = useState("abc");
+  const [password, setPassword] = useState("123");
 
-const LoginScreen = () => {
-
-  const { onLogin } = useContext(UserContext);
-
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-
-  const login = async () => {
+  const register = async () => {
     try {
-      const result = await onLogin(username, password);
+      const result = await onRegister(username, password);
       if (result == false) {
-        console.log("Sai thông tin rồi nha");
+        console.log("Lỗi register Screen");
       } else {
-        console.log("Đăng nhập rồi nha");
+        console.log("Đăng nhập đi");
       }
     } catch (e) {
-      console.log("Login error", e);
+      console.log("Register error", e);
     }
   };
 
@@ -35,12 +31,12 @@ const LoginScreen = () => {
         <View style={styleLogin.viewLogo}>
           <Image
             style={styleLogin.logo}
-            source={require("../../../assets/img/logo_only.png")}
+            source={require("../../../assets/img/logo_hugo.png")}
             resizeMode="cover"
           ></Image>
           <Image
             style={styleLogin.nameLogo}
-            source={require("../../../assets/img/Text.png")}
+            source={require("../../../assets/img/hugo_audio.png")}
             resizeMode="cover"
           ></Image>
         </View>
@@ -56,7 +52,7 @@ const LoginScreen = () => {
         <View style={styleLogin.colorBlack}></View>
         <View style={styleLogin.viewInput}>
           <View>
-            <Text style={styleLogin.title}>Đăng nhập HugoAudio</Text>
+            <Text style={styleLogin.title}>Đăng ký tài khoản</Text>
           </View>
           <View style={styleLogin.tip}>
             <TextInput
@@ -64,7 +60,7 @@ const LoginScreen = () => {
               onChangeText={setUsername}
               style={styleLogin.txtIie}
               placeholderTextColor={"#01C0FA"}
-              placeholder="Username"
+              placeholder="Username hoặc tên tài khoản"
             ></TextInput>
             <IcEmail style={styleLogin.icEmail}></IcEmail>
           </View>
@@ -74,19 +70,25 @@ const LoginScreen = () => {
               onChangeText={setPassword}
               style={styleLogin.txtIie}
               placeholderTextColor={"#01C0FA"}
-              placeholder="Mật khẩu"
+              placeholder="Nhập mật khẩu"
             ></TextInput>
-            <Pressable>
-              <IcHide style={styleLogin.icEmail}></IcHide>
-            </Pressable>
+            <IcHide style={styleLogin.icEmail}></IcHide>
           </View>
-          <View style={styleLogin.viewRemembered}>
-            <Text>Nhớ mật khẩu</Text>
+          <View style={styleLogin.tip}>
+            <TextInput
+              style={styleLogin.txtIie}
+              placeholderTextColor={"#01C0FA"}
+              placeholder="Nhập lại mật khẩu"
+            ></TextInput>
+            <IcHide style={styleLogin.icEmail}></IcHide>
+          </View>
+          {/* <View style={styleLogin.viewRemembered}>
+            <Text>Ghi nhớ mật khẩu</Text>
             <CheckBox />
-          </View>
+          </View> */}
           <View style={styleLogin.viewBtnLogin}>
-            <Pressable onPress={login}>
-              <Text style={styleLogin.txtLogin}>Đăng nhập</Text>
+            <Pressable onPress={register}>
+              <Text style={styleLogin.txtLogin}>Đăng ký tài khoản</Text>
             </Pressable>
           </View>
           <View style={styleLogin.viewTxt}>
@@ -96,20 +98,18 @@ const LoginScreen = () => {
             <IcGoogle></IcGoogle>
             <IcFb></IcFb>
           </View>
-          <View>
+          {/* <View>
             <Pressable>
-              <Text style={styleLogin.txtForgotPassword}>Quên mật khẩu?</Text>
+              <Text style={styleLogin.txtForgotPassword}>Forget password?</Text>
             </Pressable>
-          </View>
+          </View> */}
         </View>
       </View>
       <View style={styleLogin.footer}>
         <View style={styleLogin.viewDontHaveACount}>
-          <Text style={styleLogin.txtDontHaveACount}>
-            Bạn chưa có tài khoản?
-          </Text>
-          <Pressable>
-            <Text style={styleLogin.txtSignUpNow}>Đăng ký ngay</Text>
+          <Text style={styleLogin.txtDontHaveACount}>Bạn đã có tài khoản?</Text>
+          <Pressable onPress={() => navigation.navigate("LoginScreen")}>
+            <Text style={styleLogin.txtSignUpNow}>Đăng nhập</Text>
           </Pressable>
         </View>
       </View>
@@ -117,4 +117,4 @@ const LoginScreen = () => {
   );
 };
 
-export default LoginScreen;
+export default RegisterScreen;

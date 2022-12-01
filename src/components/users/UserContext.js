@@ -8,7 +8,7 @@ export const UserContextProvider = (props) => {
   const { children } = props;
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState('');
+  const [user, setUser] = useState({});
 
   const onRegister = async (username, password) => {
     try {
@@ -30,7 +30,7 @@ export const UserContextProvider = (props) => {
       //register success
       if (result.error == false) {
         const { accessToken, data } = result;
-        
+
         //lưu token vào bộ nhớ
         await AsyncStorage.setItem("token", accessToken);
         setUser(data);
@@ -45,7 +45,9 @@ export const UserContextProvider = (props) => {
   };
 
   return (
-    <UserContext.Provider value={{ onRegister, onLogin, isLoggedIn, user }}>
+    <UserContext.Provider
+      value={{ onRegister, onLogin, isLoggedIn, user }}
+    >
       {children}
     </UserContext.Provider>
   );

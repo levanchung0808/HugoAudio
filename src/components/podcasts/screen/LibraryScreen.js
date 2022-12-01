@@ -8,6 +8,8 @@ import Artist from '../../../assets/btn_Artist.svg';
 import Podcast from '../../../assets/btn_Podcast.svg';
 import colors from '../../../colors/colors';
 
+import PodcastContext from '../PodcastContext';
+
 const LibraryScreen = () => {
   const [musics, setMusics] = useState([
     {

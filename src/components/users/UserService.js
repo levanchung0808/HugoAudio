@@ -11,3 +11,8 @@ export const login = async (username, password) => {
   const result = await axiosInstance().post("/users/dang-nhap", data);
   return result;
 };
+
+export const getUsers = async () => {
+  const result = await axiosInstance().get("/users/get-users");
+  return result;
+};
